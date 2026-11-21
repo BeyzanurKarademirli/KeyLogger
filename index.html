@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KeyLogger Projesi</title>
+<meta name="description" content="Bu proje, Visual Studio 2022&#x27;de C# ile geliştirilmiş bir klavye girişi kayıt uygulamasıdır.">
+<meta property="og:title" content="KeyLogger Projesi">
+<meta property="og:description" content="Bu proje, Visual Studio 2022&#x27;de C# ile geliştirilmiş bir klavye girişi kayıt uygulamasıdır.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f7f9; --surface: #ffffff; --text: #1d1d24; --muted: #5d5d6b; --border: #e4e4ea;
+  --accent: #5b5bd6; --accent-text: #ffffff; --code-bg: #f1f1f5; --hero-a: #ececfb; --hero-b: #f7f7f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111116; --surface: #1a1a21; --text: #ececf1; --muted: #a0a0ad; --border: #2c2c36;
+    --accent: #8b8bf5; --accent-text: #111116; --code-bg: #23232c; --hero-a: #1c1c2e; --hero-b: #111116;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--accent); }
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+header.hero { background: linear-gradient(180deg, var(--hero-a), var(--hero-b)); border-bottom: 1px solid var(--border); padding: 64px 0 40px; }
+.owner { color: var(--muted); font-size: 14px; font-weight: 500; letter-spacing: .02em; }
+h1.title { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 8px 0 14px; letter-spacing: -0.02em; }
+.lead { color: var(--muted); font-size: 18px; max-width: 640px; margin: 0 0 22px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.tag { font-size: 13px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.btn.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.btn:hover { filter: brightness(1.06); }
+.clone { margin-top: 20px; display: flex; align-items: center; gap: 8px; max-width: 100%; }
+.clone code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 9px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); font: 13px "JetBrains Mono", ui-monospace, monospace; }
+.clone button { padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: 13px; cursor: pointer; }
+main { padding: 40px 0 64px; }
+article { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 8px 32px 28px; }
+article h1, article h2, article h3 { line-height: 1.25; margin-top: 1.8em; }
+article h2 { font-size: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+article img { max-width: 100%; height: auto; border-radius: 8px; }
+article { overflow-wrap: anywhere; }
+article code { font: 0.9em "JetBrains Mono", ui-monospace, monospace; background: var(--code-bg); padding: 2px 6px; border-radius: 5px; }
+article pre { background: var(--code-bg); padding: 14px 16px; border-radius: 10px; overflow-x: auto; }
+article pre code { background: none; padding: 0; }
+article table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+article th, article td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+article th { background: var(--code-bg); }
+footer { color: var(--muted); font-size: 14px; padding: 0 0 40px; text-align: center; }
+@media (max-width: 600px) { article { padding: 4px 18px 20px; } header.hero { padding: 44px 0 32px; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="owner">BeyzanurKarademirli / KeyLogger</div>
+    <h1 class="title">KeyLogger Projesi</h1>
+    <p class="lead">Bu proje, Visual Studio 2022&#x27;de C# ile geliştirilmiş bir klavye girişi kayıt uygulamasıdır.</p>
+    <div class="tags"><span class="tag">C#</span></div>
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/BeyzanurKarademirli/KeyLogger">GitHub'da görüntüle</a>
+      <a class="btn" href="https://github.com/BeyzanurKarademirli/KeyLogger/archive/refs/heads/master.zip">ZIP olarak indir</a>
+    </div>
+    <div class="clone"><code id="clone">git clone https://github.com/BeyzanurKarademirli/KeyLogger.git</code><button type="button" onclick="navigator.clipboard.writeText(document.getElementById('clone').textContent).then(()=>{this.textContent='Kopyalandı'})">Kopyala</button></div>
+  </div>
+</header>
+<main>
+  <div class="wrap"><article>
+<p>https://youtu.be/yGGyoarcxJY?si=Bf3A6qZjMbgxFHpQ</p>
+<p>Bu proje, Visual Studio 2022'de C# ile geliştirilmiş bir klavye girişi kayıt uygulamasıdır.</p>
+<h2>Özellikler</h2>
+<ul>
+<li>Klavye girişlerini kaydetme</li>
+<li>100 kelime sınırına ulaşıldığında otomatik e-posta gönderimi</li>
+<li>Kaydedilen metinleri e-posta ile iletme</li>
+</ul>
+<h2>E-posta Özelliği</h2>
+<p>Uygulama, kullanıcının yazdığı metin 100 kelimeye ulaştığında otomatik olarak <code>yazilimogrencisi016@gmail.com</code> adresine kaydedilen içeriği gönderir.</p>
+<h2>Teknolojiler</h2>
+<ul>
+<li>C# .NET Framework</li>
+<li>Windows Forms</li>
+<li>SMTP e-posta gönderimi</li>
+</ul>
+<h2>Geliştirici</h2>
+<p>Eğitim amaçlı geliştirilmiş bir projedir.</p>
+  </article></div>
+</main>
+<footer><div class="wrap"><a href="https://github.com/BeyzanurKarademirli">@BeyzanurKarademirli</a> · <a href="https://github.com/BeyzanurKarademirli/KeyLogger">Kaynak kod</a></div></footer>
+</body>
+</html>
